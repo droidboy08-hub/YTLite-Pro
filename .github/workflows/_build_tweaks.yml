@@ -255,8 +255,8 @@ jobs:
       - name: Clone Open in YouTube (Safari extension)
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/BillyCurtis/OpenYouTubeSafariExtension
-          cd OpenYoutubeSafariExtension
-          git sparse-checkout set --no-cone OpenYoutubeSafariExtension.appex
+          cd OpenYouTubeSafariExtension
+          git sparse-checkout set --no-cone OpenYouTubeSafariExtension.appex
           git checkout
           mv *.appex ..
 
