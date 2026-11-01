@@ -81,6 +81,10 @@ jobs:
         run: |
           if [ "$RUNNER_OS" = macOS ]; then
             echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
+          else
+            # Apple's clang merges duplicate tentative definitions of globals; the Linux toolchain's
+            # clang doesn't by default, and DontEatMyContent relies on it.
+            echo "ADDITIONAL_CFLAGS=-fcommon" >> $GITHUB_ENV
           fi
           echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
 
