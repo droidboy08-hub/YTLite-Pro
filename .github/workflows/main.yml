@@ -51,6 +51,12 @@ on:
         required: true
         default: false
 
+      build_on_linux:
+        description: "Build on Linux instead of macOS (faster, and not affected by shortages of Mac runners)"
+        type: boolean
+        required: true
+        default: false
+
       ipa_url:
         description: "URL to the decrypted IPA file"
         default: ""
@@ -98,10 +104,11 @@ jobs:
       enable_localization: ${{ inputs.enable_localization }}
       tweak_version: ${{ inputs.tweak_version }}
       build_from_source: ${{ inputs.build_from_source }}
+      linux: ${{ inputs.build_on_linux }}
 
   package:
     name: Package IPA
-    runs-on: macos-latest
+    runs-on: ${{ inputs.build_on_linux && 'ubuntu-latest' || 'macos-latest' }}
     timeout-minutes: 45
     needs: build-tweaks
     permissions:
@@ -119,7 +126,7 @@ jobs:
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
         with:
-          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,enable_localization,build_from_source,info_note,tweak_version
+          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,enable_localization,build_from_source,build_on_linux,info_note,tweak_version
 
       - name: Download and validate IPA
         run: |
@@ -131,19 +138,28 @@ jobs:
           fi
 
       - name: Patch Info.plist
+        env:
+          FILE_SHARING: ${{ inputs.build_from_source }}
         run: |
           unzip -q youtube.ipa -d ipa_tmp
           plist="$(find ipa_tmp/Payload -maxdepth 1 -name '*.app' | head -n 1)/Info.plist"
-          /usr/libexec/PlistBuddy -c "Delete :UIDesignRequiresCompatibility" "$plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Delete :NSFaceIDUsageDescription" "$plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Add :NSFaceIDUsageDescription string 'Face ID is required to authenticate.'" "$plist"
-          if [ "${{ inputs.build_from_source }}" = "true" ]; then
-            # Show the app's Documents folder (downloaded videos) in the Files app.
-            for key in UIFileSharingEnabled LSSupportsOpeningDocumentsInPlace; do
-              /usr/libexec/PlistBuddy -c "Delete :$key" "$plist" 2>/dev/null || true
-              /usr/libexec/PlistBuddy -c "Add :$key bool true" "$plist"
-            done
-          fi
+          # Python's plistlib instead of PlistBuddy, so this also runs on Linux.
+          python3 - "$plist" <<'EOF'
+          import os, plistlib, sys
+          path = sys.argv[1]
+          with open(path, "rb") as f:
+              data = f.read()
+          fmt = plistlib.FMT_BINARY if data.startswith(b"bplist") else plistlib.FMT_XML
+          info = plistlib.loads(data)
+          info.pop("UIDesignRequiresCompatibility", None)
+          info["NSFaceIDUsageDescription"] = "Face ID is required to authenticate."
+          if os.environ["FILE_SHARING"] == "true":
+              # Show the app's Documents folder (downloaded videos) in the Files app.
+              info["UIFileSharingEnabled"] = True
+              info["LSSupportsOpeningDocumentsInPlace"] = True
+          with open(path, "wb") as f:
+              plistlib.dump(info, f, fmt=fmt)
+          EOF
           rm youtube.ipa
           (cd ipa_tmp && zip -qry ../youtube.ipa .)
           rm -rf ipa_tmp

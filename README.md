@@ -66,7 +66,7 @@ This repository's source adds these features to the open-source YTLite tweak:
 
 How it works, the options considered and the known limits: [docs/Research.md](docs/Research.md).
 
-To get these features into an app, run **Create YouTube Plus app** with **Build the tweak from this repository's source** ticked. The workflow then compiles this repository instead of downloading the YouTube Plus release. It also makes the downloads folder visible in the Files app under *On My iPhone › YouTube*.
+To get these features into an app, run **Create YouTube Plus app** with **Build the tweak from this repository's source** ticked. The workflow then compiles this repository instead of downloading the YouTube Plus release. It also makes the downloads folder visible in the Files app under *On My iPhone › YouTube*. Every change to the source is also compiled on Linux by the **Check tweak build** workflow, which keeps the resulting .deb for a week.
 
 ## FAQ
 - [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
@@ -88,6 +88,7 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
     <li>Navigate to the <strong>Actions tab</strong> of this repository and select <strong>Create YouTube Plus app</strong>.</li>
     <li>Click the <strong>Run workflow</strong> button located on the right side.</li>
     <li>Tick <strong>Build the tweak from this repository's source</strong> to get the downloader, ad blocker and SponsorBlock. If you leave it unticked, the workflow downloads the YouTube Plus release instead, and the tweak version below is used.</li>
+    <li>Optionally tick <strong>Build on Linux instead of macOS</strong>. Linux builds are faster and keep working when GitHub is short of Mac runners.</li>
     <li>Mark or unmark the tweaks you want to integrate. Learn more about them in the <a href="#tweak-integration-details">Tweak Integration Details</a> section.</li>
     <li>Prepare a decrypted .ipa file <em>(we cannot provide this due to legal reasons)</em>, then upload it to a file provider (e.g., filebin.net, filemail.com, or Dropbox is recommended). Paste the URL of the decrypted IPA file in the provided field.</li>
     <li><strong>NOTE:</strong> Make sure to provide a direct download link to the file, not a link to a webpage. Otherwise, the process will fail.</li>
