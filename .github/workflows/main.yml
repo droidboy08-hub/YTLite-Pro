@@ -46,7 +46,7 @@ on:
         default: false
 
       build_from_source:
-        description: "Build the tweak from this repository's source (video downloader + ad blocker) instead of downloading YouTube Plus"
+        description: "Build the tweak from this repository's source (downloader, ad blocker, SponsorBlock) instead of downloading YouTube Plus"
         type: boolean
         required: true
         default: false

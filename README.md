@@ -1,5 +1,7 @@
-# YouTube Plus (ex. YTLite)
+# YTLite Pro
 A flexible enhancer for YouTube on iOS, featuring over hundred customizable options.
+
+YTLite Pro is a standalone copy of [dayanch96/YTLite](https://github.com/dayanch96/YTLite) (YouTube Plus, ex. YTLite). It adds a downloader, a layered ad blocker and SponsorBlock to the open-source tweak; see [below](#downloader-ad-blocker--sponsorblock-built-from-this-repository). It isn't a fork, so upstream changes are merged in by hand and can't overwrite these additions.
 
 ## Table of Contents
 - [Screenshots](#screenshots)
@@ -77,23 +79,21 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 
 ## How to build a YouTube Plus app using Github actions
 > [!NOTE]
-> If this your first time, complete following steps before starting:
->
-> 1. Fork this repository using the fork button on the top right
-> 2. On your forked repository, go to **Repository Settings** > **Actions**, enable **Read and Write** permissions.
+> Run the workflows from this repository. It isn't a fork, so there is no **Sync fork** step.
+> The workflows request the write permission they need to publish the release. If a run fails at the release step with a permissions error, go to **Settings** > **Actions** > **General**, select **Read and write permissions** under **Workflow permissions**, and run it again.
 
 <details>
   <summary>How to build the YouTube Plus app</summary>
   <ol>
-    <li>Click on <strong>Sync fork</strong>, and if your branch is out-of-date, click on <strong>Update branch</strong>.</li>
-    <li>Navigate to the <strong>Actions tab</strong> in your forked repository and select <strong>Create YouTube Plus app</strong>.</li>
+    <li>Navigate to the <strong>Actions tab</strong> of this repository and select <strong>Create YouTube Plus app</strong>.</li>
     <li>Click the <strong>Run workflow</strong> button located on the right side.</li>
+    <li>Tick <strong>Build the tweak from this repository's source</strong> to get the downloader, ad blocker and SponsorBlock. If you leave it unticked, the workflow downloads the YouTube Plus release instead, and the tweak version below is used.</li>
     <li>Mark or unmark the tweaks you want to integrate. Learn more about them in the <a href="#tweak-integration-details">Tweak Integration Details</a> section.</li>
     <li>Prepare a decrypted .ipa file <em>(we cannot provide this due to legal reasons)</em>, then upload it to a file provider (e.g., filebin.net, filemail.com, or Dropbox is recommended). Paste the URL of the decrypted IPA file in the provided field.</li>
     <li><strong>NOTE:</strong> Make sure to provide a direct download link to the file, not a link to a webpage. Otherwise, the process will fail.</li>
     <li>Enter the tweak version from the releases (the latest release is selected by default). You can also change the BundleID and Display Name if desired.</li>
     <li>Make sure all inputs are correct, then click <strong>Run workflow</strong> to start the process.</li>
-    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the URL, i.e., github.com/user/YTLite/releases.)</li>
+    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of this repository. (If you can't find the releases section, add /releases to the repository URL, i.e., github.com/droidboy08-hub/YTLite-Pro/releases.)</li>
   </ol>
 </details>
 
@@ -104,15 +104,14 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
     <blockquote>
       <p><strong>NOTE:</strong> This option is primarily intended for building the YouTube Plus app based on the beta file you have. In other cases, it is generally not needed.</p>
     </blockquote>
-    <li>Click on <strong>Sync fork</strong>, and if your branch is out-of-date, click on <strong>Update branch</strong>.</li>
-    <li>Navigate to the <strong>Actions tab</strong> in your forked repository and select <strong>[BETA] Build YouTube Plus app</strong>.</li>
+    <li>Navigate to the <strong>Actions tab</strong> of this repository and select <strong>[BETA] Create YouTube Plus app</strong>.</li>
     <li>Click the <strong>Run workflow</strong> button located on the right side.</li>
     <li>Mark or unmark the tweaks you want to integrate. Learn more about them in the <a href="#tweak-integration-details">Tweak Integration Details</a> section.</li>
     <li>Prepare a decrypted .ipa file <em>(we cannot provide this due to legal reasons)</em>, then upload it to a file provider (e.g., filebin.net, filemail.com, or Dropbox is recommended). Paste the URL of the decrypted IPA file in the provided field.</li>
     <li>Upload your beta tweak file to a file provider and paste direct link to the <strong>URL to the YouTube Plus tweak file</strong> field. You can also change the BundleID and Display Name if desired.</li>
     <li><strong>NOTE:</strong> Make sure to provide a direct download link to the file, not a link to a webpage. Otherwise, the process will fail.</li>
     <li>Make sure all inputs are correct, then click <strong>Run workflow</strong> to start the process.</li>
-    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the URL, i.e., github.com/user/YTLite/releases.)</li>
+    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of this repository. (If you can't find the releases section, add /releases to the repository URL, i.e., github.com/droidboy08-hub/YTLite-Pro/releases.)</li>
   </ol>
 </details>
 
