@@ -13,7 +13,7 @@ on:
       - Makefile
       - control
       - "layout/**"
-      - ".github/scripts/build_from_source.sh"
+      - ".github/scripts/**"
       - ".github/workflows/check_build.yml"
   pull_request:
   workflow_dispatch:
@@ -50,14 +50,7 @@ jobs:
           submodules: recursive
 
       - name: Install iOS toolchain and SDK
-        run: |
-          curl -fsSL https://github.com/L1ghtmann/llvm-project/releases/latest/download/iOSToolchain-x86_64.tar.xz \
-            | tar -xJf - -C "$THEOS/toolchain/"
-          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
-          cd sdks
-          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
-          git checkout
-          mv *.sdk "$THEOS/sdks"
+        run: bash ytlite-src/YTLite/.github/scripts/setup_theos_linux.sh
 
       - name: Build YTLite from source
         timeout-minutes: 20
