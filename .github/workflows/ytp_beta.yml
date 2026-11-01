@@ -95,6 +95,7 @@ jobs:
   package:
     name: Package IPA (Beta)
     runs-on: macos-latest
+    timeout-minutes: 45
     needs: build-tweaks
     permissions:
       contents: write

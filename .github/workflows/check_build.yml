@@ -1,0 +1,72 @@
+name: Check tweak build
+
+# Compiles the tweak from source on Linux, so every change gets a real build without
+# needing an IPA or a macOS runner. The .deb is kept as an artifact for a week.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.x"
+      - "**.m"
+      - "**.h"
+      - "**.c"
+      - Makefile
+      - control
+      - "layout/**"
+      - ".github/scripts/build_from_source.sh"
+      - ".github/workflows/check_build.yml"
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build tweak (Linux)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      THEOS: ${{ github.workspace }}/theos
+
+    steps:
+      - name: Check out YTLite source
+        uses: actions/checkout@v6
+        with:
+          path: ytlite-src/YTLite
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q build-essential fakeroot rsync curl perl zip git libxml2 libtinfo6
+
+      - name: Set up Theos
+        uses: actions/checkout@v6
+        with:
+          repository: theos/theos
+          ref: 9bc73406cf80b711ef4d02c15ff1dedc4478a275
+          path: theos
+          submodules: recursive
+
+      - name: Install iOS toolchain and SDK
+        run: |
+          curl -fsSL https://github.com/L1ghtmann/llvm-project/releases/latest/download/iOSToolchain-x86_64.tar.xz \
+            | tar -xJf - -C "$THEOS/toolchain/"
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
+          cd sdks
+          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git checkout
+          mv *.sdk "$THEOS/sdks"
+
+      - name: Build YTLite from source
+        timeout-minutes: 20
+        run: bash ytlite-src/YTLite/.github/scripts/build_from_source.sh
+
+      - name: Upload the .deb
+        uses: actions/upload-artifact@v7
+        with:
+          name: ytlite-pro-deb
+          path: ytlite-src/YTLite/packages/*.deb
+          if-no-files-found: error
+          retention-days: 7
