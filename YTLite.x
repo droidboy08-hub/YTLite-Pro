@@ -188,11 +188,23 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 { return ytlBool(@"noHUDMsgs") ? nil : %orig; }
 %end
 
+// On iOS 26 YouTube's floating bar is Liquid Glass; make sure the system reports glass as available
+// so YouTube uses it. Harmless (and dormant) on builds without this class.
+%hook M3CLiquidGlass
++ (BOOL)isLiquidGlassAvailable { return ytlBool(@"translucentBar") ? YES : %orig; }
++ (BOOL)computeIsLiquidGlassAvailable { return ytlBool(@"translucentBar") ? YES : %orig; }
+%end
+
 %hook YTColdConfig
 // YouTube draws the frosted, floating tab bar itself when these are on.
 - (BOOL)mainAppCoreClientEnableModernIaFrostedPivotBar { return ytlBool(@"translucentBar") ? YES : %orig; }
 - (BOOL)mainAppCoreClientEnableModernIaFrostedPivotBarUpdatedBackdrop { return ytlBool(@"translucentBar") ? YES : %orig; }
 - (BOOL)mainAppCoreClientEnableModernIaFrostedBottomBar { return ytlBool(@"translucentBar") ? YES : %orig; }
+// The iOS 26 Liquid Glass floating bars use a different flag family; force those too so one switch
+// covers whichever redesign this YouTube build ships.
+- (BOOL)mainAppCoreClientIos27EnableLiquidGlass { return ytlBool(@"translucentBar") ? YES : %orig; }
+- (BOOL)mainAppCoreClientIosEnablePositionedFloatyBars { return ytlBool(@"translucentBar") ? YES : %orig; }
+- (long long)mainAppCoreClientIosFloatingBarStyle { return ytlBool(@"translucentBar") ? 2 : %orig; }
 // Hide Next & Previous buttons
 - (BOOL)removeNextPaddleForSingletonVideos { return ytlBool(@"hidePrevNext") ? YES : %orig; }
 - (BOOL)removePreviousPaddleForSingletonVideos { return ytlBool(@"hidePrevNext") ? YES : %orig; }
