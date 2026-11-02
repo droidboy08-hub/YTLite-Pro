@@ -34,10 +34,14 @@ static NSString *GetCacheSize() {
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
     NSArray *order = %orig;
-    NSMutableArray *mutableOrder = [order mutableCopy];
-    NSUInteger insertIndex = [order indexOfObject:@(1)];
-    if (insertIndex != NSNotFound)
-        [mutableOrder insertObject:@(YTLiteSection) atIndex:insertIndex + 1];
+    NSMutableArray *mutableOrder = [order mutableCopy] ?: [NSMutableArray array];
+    if (![mutableOrder containsObject:@(YTLiteSection)]) {
+        NSUInteger insertIndex = [mutableOrder indexOfObject:@(1)];
+        if (insertIndex == NSNotFound)
+            [mutableOrder insertObject:@(YTLiteSection) atIndex:0];
+        else
+            [mutableOrder insertObject:@(YTLiteSection) atIndex:insertIndex + 1];
+    }
     return mutableOrder;
 }
 %end
