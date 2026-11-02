@@ -1,4 +1,5 @@
 #import "YTLite.h"
+#import "../YouTubeHeader/YTSettingsGroupData.h"
 #import <objc/message.h>
 #import "Downloader/YTLDownloadManager.h"
 #import "SponsorBlock/YTLSponsorBlock.h"
@@ -43,6 +44,41 @@ static NSString *GetCacheSize() {
             [mutableOrder insertObject:@(YTLiteSection) atIndex:insertIndex + 1];
     }
     return mutableOrder;
+}
+%end
+
+// Current YouTube opens grouped Settings. A category that is not in a group
+// never appears, which is why the YouTube Plus row was missing.
+static const NSInteger YTLiteGroup = 'ytlp';
+
+%hook YTAppSettingsGroupPresentationData
++ (NSArray *)orderedGroups {
+    NSArray *groups = %orig;
+    NSMutableArray *mutableGroups = [groups mutableCopy] ?: [NSMutableArray array];
+    for (YTSettingsGroupData *group in mutableGroups) {
+        if (group.type == YTLiteGroup) return mutableGroups;
+    }
+    YTSettingsGroupData *group = [[%c(YTSettingsGroupData) alloc] initWithGroupType:YTLiteGroup];
+    if (group) [mutableGroups insertObject:group atIndex:0];
+    return mutableGroups;
+}
+%end
+
+%hook YTSettingsGroupData
+- (NSString *)titleForSettingGroupType:(NSUInteger)type {
+    if (type == YTLiteGroup) return @"YouTube Plus";
+    return %orig;
+}
+- (NSArray *)orderedCategoriesForGroupType:(NSUInteger)type {
+    if (type == YTLiteGroup) return @[@(YTLiteSection)];
+    return %orig;
+}
+- (NSArray *)appPreferenceCategories {
+    NSArray *original = %orig;
+    NSMutableArray *categories = [original mutableCopy] ?: [NSMutableArray array];
+    if (![categories containsObject:@(YTLiteSection)])
+        [categories insertObject:@(YTLiteSection) atIndex:0];
+    return categories;
 }
 %end
 
