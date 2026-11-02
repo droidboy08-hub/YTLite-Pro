@@ -125,7 +125,7 @@ static const NSInteger YTLiteGroup = 'ytlp';
         else {
             ytlSetBool(enabled, key);
 
-            NSArray *keys = @[@"capsuleTabBar", @"removeLabels", @"removeIndicators", @"reExplore", @"addExplore", @"removeShorts", @"removeSubscriptions", @"removeUploads", @"removeLibrary"];
+            NSArray *keys = @[@"removeLabels", @"removeIndicators", @"reExplore", @"addExplore", @"removeShorts", @"removeSubscriptions", @"removeUploads", @"removeLibrary"];
             if ([keys containsObject:key]) {
                 [[[%c(YTHeaderContentComboViewController) alloc] init] refreshPivotBar];
             }
@@ -486,7 +486,6 @@ static const NSInteger YTLiteGroup = 'ytlp';
     }
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         NSArray <YTSettingsSectionItem *> *rows = @[
-            [self switchWithTitle:@"CapsuleTabBar" key:@"capsuleTabBar"],
             [self switchWithTitle:@"RemoveLabels" key:@"removeLabels"],
             [self switchWithTitle:@"RemoveIndicators" key:@"removeIndicators"],
             [self switchWithTitle:@"ReExplore" key:@"reExplore"],
