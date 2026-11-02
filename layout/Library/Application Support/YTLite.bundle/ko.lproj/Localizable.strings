@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "동영상";
 
 "TranslucentBar" = "반투명 탭 바";
+"TranslucentBarDesc" = "YouTube의 반투명 유리 탭 바를 사용합니다. 바꾼 뒤에는 앱을 다시 시작하세요.";
 "RemoveLabels" = "탭 이름 숨기기";
 "RemoveIndicators" = "탭 표시기 제거";
 

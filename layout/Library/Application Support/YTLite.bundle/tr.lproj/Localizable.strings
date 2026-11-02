@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Yarı saydam sekme çubuğu";
+"TranslucentBarDesc" = "YouTube'un buzlu cam sekme çubuğunu kullanır. Değiştirdikten sonra uygulamayı yeniden başlatın.";
 "RemoveLabels" = "Etiketleri kaldır";
 "RemoveIndicators" = "Göstergeleri kaldır";
 

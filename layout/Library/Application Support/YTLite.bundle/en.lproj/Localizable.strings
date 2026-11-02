@@ -525,6 +525,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Translucent tab bar";
+"TranslucentBarDesc" = "Uses YouTube's frosted glass tab bar. On versions that support it, the bar floats above the content. Restart the app after changing this.";
 "RemoveLabels" = "Remove tab labels";
 "RemoveIndicators" = "Remove tab indicators";
 

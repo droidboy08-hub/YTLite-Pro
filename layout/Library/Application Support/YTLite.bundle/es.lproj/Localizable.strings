@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Barra de pestañas translúcida";
+"TranslucentBarDesc" = "Usa la barra de pestañas de vidrio esmerilado de YouTube. Reinicia la app después de cambiarla.";
 "RemoveLabels" = "Eliminar etiquetas";
 "RemoveIndicators" = "Eliminar indicadores";
 

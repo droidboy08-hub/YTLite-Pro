@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "فيديو";
 
 "TranslucentBar" = "شريط تبويب شبه شفاف";
+"TranslucentBarDesc" = "يستخدم شريط علامات يوتيوب الزجاجي. أعد تشغيل التطبيق بعد التغيير.";
 "RemoveLabels" = "حذف أسماء علامات التبويب";
 "RemoveIndicators" = "حذف مؤشرات علامات التبويب";
 

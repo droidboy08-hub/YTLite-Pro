@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Видео";
 
 "TranslucentBar" = "Полупрозрачный стиль";
+"TranslucentBarDesc" = "Включает матовую стеклянную панель вкладок YouTube. После изменения перезапустите приложение.";
 "RemoveLabels" = "Скрыть названия вкладок";
 "RemoveIndicators" = "Скрыть индикаторы вкладок";
 

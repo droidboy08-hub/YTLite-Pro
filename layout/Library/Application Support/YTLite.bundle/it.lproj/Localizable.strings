@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Tab bar traslucida";
+"TranslucentBarDesc" = "Usa la barra delle schede in vetro smerigliato di YouTube. Riavvia l'app dopo la modifica.";
 "RemoveLabels" = "Rimuovi descrizioni Tab";
 "RemoveIndicators" = "Rimuovi indicatori Tab";
 

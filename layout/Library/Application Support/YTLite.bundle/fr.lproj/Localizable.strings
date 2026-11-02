@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Translucent tab bar";
+"TranslucentBarDesc" = "Utilise la barre d'onglets en verre dépoli de YouTube. Redémarrez l'app après le changement.";
 "RemoveLabels" = "Supprimer les sous-titres";
 "RemoveIndicators" = "Supprimer les indicateurs";
 

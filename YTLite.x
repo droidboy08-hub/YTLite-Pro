@@ -189,6 +189,10 @@ static UIImage *YTImageNamed(NSString *imageName) {
 %end
 
 %hook YTColdConfig
+// YouTube draws the frosted, floating tab bar itself when these are on.
+- (BOOL)mainAppCoreClientEnableModernIaFrostedPivotBar { return ytlBool(@"translucentBar") ? YES : %orig; }
+- (BOOL)mainAppCoreClientEnableModernIaFrostedPivotBarUpdatedBackdrop { return ytlBool(@"translucentBar") ? YES : %orig; }
+- (BOOL)mainAppCoreClientEnableModernIaFrostedBottomBar { return ytlBool(@"translucentBar") ? YES : %orig; }
 // Hide Next & Previous buttons
 - (BOOL)removeNextPaddleForSingletonVideos { return ytlBool(@"hidePrevNext") ? YES : %orig; }
 - (BOOL)removePreviousPaddleForSingletonVideos { return ytlBool(@"hidePrevNext") ? YES : %orig; }
@@ -1106,6 +1110,9 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
 // Remove Tabs
 %hook YTPivotBarView
+- (BOOL)isFrostedPivotBarPermitted {
+    return ytlBool(@"translucentBar") ? YES : %orig;
+}
 - (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     NSMutableArray <YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
 

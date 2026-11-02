@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Thanh tab trong suốt";
+"TranslucentBarDesc" = "Dùng thanh tab kính mờ của YouTube. Hãy mở lại app sau khi đổi.";
 "RemoveLabels" = "Ẩn tiêu đề tab";
 "RemoveIndicators" = "Ẩn biểu thị hiện hoạt";
 

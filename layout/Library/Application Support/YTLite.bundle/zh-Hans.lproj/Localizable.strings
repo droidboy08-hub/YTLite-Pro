@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "视频";
 
 "TranslucentBar" = "半透明标签栏";
+"TranslucentBarDesc" = "使用 YouTube 的磨砂玻璃标签栏。更改后请重新打开应用。";
 "RemoveLabels" = "移除标签";
 "RemoveIndicators" = "移除红点指示";
 

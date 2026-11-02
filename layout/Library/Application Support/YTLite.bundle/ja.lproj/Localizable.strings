@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "半透明のタブバー";
+"TranslucentBarDesc" = "YouTubeのすりガラスのタブバーを使います。変更後はアプリを再起動してください。";
 "RemoveLabels" = "タブのラベルを削除";
 "RemoveIndicators" = "タブのインジケーターを削除";
 

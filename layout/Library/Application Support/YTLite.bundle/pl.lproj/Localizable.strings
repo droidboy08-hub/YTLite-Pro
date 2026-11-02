@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "Film";
 
 "TranslucentBar" = "Przezroczysty pasek zakładek";
+"TranslucentBarDesc" = "Używa matowej szklanej belki kart YouTube. Po zmianie uruchom aplikację ponownie.";
 "RemoveLabels" = "Usuń etykiety kart";
 "RemoveIndicators" = "Usuń wskaźniki kart";
 

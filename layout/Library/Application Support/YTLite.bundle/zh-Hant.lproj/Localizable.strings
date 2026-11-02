@@ -512,6 +512,7 @@
 "Downloads.Swipe.Video" = "影片";
 
 "TranslucentBar" = "半透明標籤欄";
+"TranslucentBarDesc" = "使用 YouTube 的磨砂玻璃標籤列。變更後請重新開啟 App。";
 "RemoveLabels" = "移除文字";
 "RemoveIndicators" = "刪除標記";
 
