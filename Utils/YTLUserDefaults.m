@@ -29,6 +29,7 @@ static NSString *const kDefaultsSuiteName = @"com.dvntm.ytlite";
         @"downloadSaveAction": @0,
         @"sponsorBlock": @YES,
         @"sbShowNotifications": @YES,
+        @"capsuleTabBar": @NO,
         @"removeUploads": @YES,
         @"speedIndex": @1,
         @"autoSpeedIndex": @3,

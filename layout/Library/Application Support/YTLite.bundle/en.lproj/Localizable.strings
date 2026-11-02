@@ -525,6 +525,8 @@
 "Downloads.Swipe.Video" = "Video";
 
 "TranslucentBar" = "Translucent tab bar";
+"CapsuleTabBar" = "Capsule tab bar";
+"CapsuleTabBarDesc" = "Shows the bottom tabs as a floating glass pill that sizes itself to the number of tabs. Liquid Glass on iOS 26, a frosted blur on earlier versions.";
 "RemoveLabels" = "Remove tab labels";
 "RemoveIndicators" = "Remove tab indicators";
 
