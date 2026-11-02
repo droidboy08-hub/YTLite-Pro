@@ -39,18 +39,6 @@ on:
         required: true
         default: false
 
-      enable_localization:
-        description: "Update localization files from repo"
-        type: boolean
-        required: true
-        default: false
-
-      build_from_source:
-        description: "Build the tweak from this repository's source (downloader, ad blocker, SponsorBlock) instead of downloading YouTube Plus"
-        type: boolean
-        required: true
-        default: false
-
       build_on_linux:
         description: "Build on Linux instead of macOS (faster, and not affected by shortages of Mac runners)"
         type: boolean
@@ -60,12 +48,6 @@ on:
       ipa_url:
         description: "URL to the decrypted IPA file"
         default: ""
-        required: true
-        type: string
-
-      tweak_version:
-        description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
-        default: "5.2.2"
         required: true
         type: string
 
@@ -83,7 +65,7 @@ on:
 
       info_note:
         description: "TIP: Learn more about integrations in the README via the link below"
-        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
+        default: "https://github.com/droidboy08-hub/YTLite-Pro#tweak-integration"
         type: string
         required: false
 
@@ -101,9 +83,7 @@ jobs:
       enable_ryd: ${{ inputs.enable_ryd }}
       enable_ytabc: ${{ inputs.enable_ytabc }}
       enable_demc: ${{ inputs.enable_demc }}
-      enable_localization: ${{ inputs.enable_localization }}
-      tweak_version: ${{ inputs.tweak_version }}
-      build_from_source: ${{ inputs.build_from_source }}
+      build_from_source: true
       linux: ${{ inputs.build_on_linux }}
 
   package:
@@ -114,7 +94,7 @@ jobs:
     permissions:
       contents: write
     env:
-      APP_VERSION: ${{ inputs.build_from_source && 'ytlite-source' || inputs.tweak_version }}
+      APP_VERSION: ytlite-source
 
     steps:
       - name: Download built debs
@@ -126,7 +106,7 @@ jobs:
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
         with:
-          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,enable_localization,build_from_source,build_on_linux,info_note,tweak_version
+          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,build_on_linux,info_note
 
       - name: Download and validate IPA
         run: |
@@ -139,7 +119,7 @@ jobs:
 
       - name: Patch Info.plist
         env:
-          FILE_SHARING: ${{ inputs.build_from_source }}
+          FILE_SHARING: "true"
         run: |
           unzip -q youtube.ipa -d ipa_tmp
           plist="$(find ipa_tmp/Payload -maxdepth 1 -name '*.app' | head -n 1)/Info.plist"

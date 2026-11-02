@@ -51,18 +51,6 @@ on:
         required: true
         default: false
 
-      build_from_source:
-        description: "Build the tweak from this repository's source (downloader, ad blocker, SponsorBlock) instead of downloading YouTube Plus"
-        type: boolean
-        required: true
-        default: false
-
-      tweak_version:
-        description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
-        default: "5.2.2"
-        required: true
-        type: string
-
       display_name:
         description: "App Name (Optional)"
         default: "YouTube"
@@ -89,8 +77,7 @@ jobs:
       enable_ryd: ${{ inputs.enable_ryd }}
       enable_ytabc: ${{ inputs.enable_ytabc }}
       enable_demc: ${{ inputs.enable_demc }}
-      tweak_version: ${{ inputs.tweak_version }}
-      build_from_source: ${{ inputs.build_from_source }}
+      build_from_source: true
 
   package:
     name: Generate Cyan/TrollFools
@@ -100,7 +87,7 @@ jobs:
     permissions:
       contents: write
     env:
-      APP_VERSION: ${{ inputs.build_from_source && 'ytlite-source' || inputs.tweak_version }}
+      APP_VERSION: ytlite-source
 
     steps:
       - name: Download built debs

@@ -1362,8 +1362,8 @@ static NSURL *newCoverURL(NSURL *originalURL) {
             }
             actionTitle:LOC(@"Yes")
             cancelTitle:LOC(@"No")];
-            alertView.title = @"YTLite";
-            alertView.subtitle = [NSString stringWithFormat:LOC(@"AdvancedModeReminder"), @"YTLite", LOC(@"Version"), LOC(@"Advanced")];
+            alertView.title = @"YouTube Plus";
+            alertView.subtitle = [NSString stringWithFormat:LOC(@"AdvancedModeReminder"), @"YouTube Plus", LOC(@"Version"), LOC(@"Advanced")];
             [alertView show];
         });
     }
