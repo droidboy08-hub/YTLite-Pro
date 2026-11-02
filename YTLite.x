@@ -189,9 +189,6 @@ static UIImage *YTImageNamed(NSString *imageName) {
 %end
 
 %hook YTColdConfig
-// YouTube's grouped Settings screen does not list this tweak. Keep the classic
-// list so the YouTube Plus row is visible.
-- (BOOL)mainAppCoreClientEnableCairoSettings { return NO; }
 // Hide Next & Previous buttons
 - (BOOL)removeNextPaddleForSingletonVideos { return ytlBool(@"hidePrevNext") ? YES : %orig; }
 - (BOOL)removePreviousPaddleForSingletonVideos { return ytlBool(@"hidePrevNext") ? YES : %orig; }

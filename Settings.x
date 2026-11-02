@@ -73,13 +73,6 @@ static const NSInteger YTLiteGroup = 'ytlp';
     if (type == YTLiteGroup) return @[@(YTLiteSection)];
     return %orig;
 }
-- (NSArray *)appPreferenceCategories {
-    NSArray *original = %orig;
-    NSMutableArray *categories = [original mutableCopy] ?: [NSMutableArray array];
-    if (![categories containsObject:@(YTLiteSection)])
-        [categories insertObject:@(YTLiteSection) atIndex:0];
-    return categories;
-}
 %end
 
 %hook YTSettingsSectionController
