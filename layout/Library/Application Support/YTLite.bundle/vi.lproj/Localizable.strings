@@ -3,24 +3,24 @@
 "SkipLogInAlert" = "Tạm tắt thông báo đăng nhập";
 "LogIn" = "Đăng nhập";
 "ManageAccount" = "Quản lý tài khoản";
-"AccessDenied" = "Truy cập bị từ chối";
+"AccessDenied" = "YouTube Plus miễn phí cho mọi người";
 "LogOut" = "Đăng xuất";
 "LogOutTitle" = "Đăng xuất";
 "LogOutMessage" = "Bạn có chắc chắn muốn tiếp tục không?";
-"FeaturesNotActivated" = "Bạn hiện chưa đăng nhập. Để sử dụng được các tính năng của YouTube Plus, vui lòng đăng nhập bằng tài khoản đang có gói đăng ký hợp lệ.";
+"FeaturesNotActivated" = "YouTube Plus miễn phí. Ai cũng dùng được.";
 
 /* Account status */
-"Access.Status" = "Status";
-"Access.Active" = "Active";
-"Access.AccountRequired" = "Account required";
-"Access.LogIn" = "Log in";
-"Access.DeviceLimit" = "Device limit reached";
-"Access.DeviceNotRegistered" = "Device is not linked";
-"Access.InsufficientPlan" = "Subscription level is too low";
-"Access.NotFound" = "Account not found";
-"Access.AppNotFound" = "App is not registered";
-"Access.SignInAgain" = "Sign in again";
-"Access.RequestError" = "Request error";
+"Access.Status" = "YouTube Plus";
+"Access.Active" = "Miễn phí cho mọi người";
+"Access.AccountRequired" = "Không cần tài khoản";
+"Access.LogIn" = "Miễn phí cho mọi người";
+"Access.DeviceLimit" = "Miễn phí cho mọi người";
+"Access.DeviceNotRegistered" = "Miễn phí cho mọi người";
+"Access.InsufficientPlan" = "Miễn phí cho mọi người";
+"Access.NotFound" = "Miễn phí cho mọi người";
+"Access.AppNotFound" = "Miễn phí cho mọi người";
+"Access.SignInAgain" = "Miễn phí cho mọi người";
+"Access.RequestError" = "YouTube Plus miễn phí cho mọi người";
 
 /* Main section */
 "Main" = "Cài đặt chính";

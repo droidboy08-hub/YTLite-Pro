@@ -3,24 +3,24 @@
 "SkipLogInAlert" = "Скрыть напоминание о входе";
 "LogIn" = "Авторизация";
 "ManageAccount" = "Управление аккаунтом";
-"AccessDenied" = "Нет доступа";
+"AccessDenied" = "YouTube Plus бесплатный для всех";
 "LogOut" = "Выйти";
 "LogOutTitle" = "Выход";
 "LogOutMessage" = "Уверены, что хотите продолжить?";
-"FeaturesNotActivated" = "Вы не вошли в аккаунт. Для доступа к функциям YouTube Plus войдите в аккаунт с активной подпиской.";
+"FeaturesNotActivated" = "YouTube Plus бесплатный. Им может пользоваться кто угодно.";
 
 /* Account status */
-"Access.Status" = "Статус";
-"Access.Active" = "Активен";
-"Access.AccountRequired" = "Нужен аккаунт";
-"Access.LogIn" = "Войти";
-"Access.DeviceLimit" = "Лимит устройств исчерпан";
-"Access.DeviceNotRegistered" = "Устройство не привязано";
-"Access.InsufficientPlan" = "Недостаточный уровень подписки";
-"Access.NotFound" = "Аккаунт не найден";
-"Access.AppNotFound" = "Приложение не найдено на сервере";
-"Access.SignInAgain" = "Требуется повторный вход";
-"Access.RequestError" = "Ошибка запроса";
+"Access.Status" = "YouTube Plus";
+"Access.Active" = "Бесплатно для всех";
+"Access.AccountRequired" = "Аккаунт не нужен";
+"Access.LogIn" = "Бесплатно для всех";
+"Access.DeviceLimit" = "Бесплатно для всех";
+"Access.DeviceNotRegistered" = "Бесплатно для всех";
+"Access.InsufficientPlan" = "Бесплатно для всех";
+"Access.NotFound" = "Бесплатно для всех";
+"Access.AppNotFound" = "Бесплатно для всех";
+"Access.SignInAgain" = "Бесплатно для всех";
+"Access.RequestError" = "YouTube Plus бесплатный для всех";
 
 /* Main section */
 "Main" = "Основные";

@@ -3,24 +3,24 @@
 "SkipLogInAlert" = "Ukryj przypomnienie o logowaniu";
 "LogIn" = "Zaloguj się";
 "ManageAccount" = "Zarządzaj kontem";
-"AccessDenied" = "Brak dostępu";
+"AccessDenied" = "YouTube Plus jest darmowy dla każdego";
 "LogOut" = "Wyloguj";
 "LogOutTitle" = "Wylogowanie";
 "LogOutMessage" = "Czy na pewno chcesz kontynuować?";
-"FeaturesNotActivated" = "Nie jesteś zalogowany. Aby uzyskać dostęp do funkcji YouTube Plus, zaloguj się na konto z aktywną subskrypcją.";
+"FeaturesNotActivated" = "YouTube Plus jest darmowy. Każdy może z niego korzystać.";
 
 /* Account status */
-"Access.Status" = "Status";
-"Access.Active" = "Aktywna";
-"Access.AccountRequired" = "Wymagane konto";
-"Access.LogIn" = "Zaloguj się";
-"Access.DeviceLimit" = "Osiągnięto limit urządzeń";
-"Access.DeviceNotRegistered" = "Urządzenie nie jest połączone";
-"Access.InsufficientPlan" = "Poziom subskrypcji jest zbyt niski";
-"Access.NotFound" = "Nie znaleziono konta";
-"Access.AppNotFound" = "Aplikacja nie jest zarejestrowana";
-"Access.SignInAgain" = "Zaloguj się ponownie";
-"Access.RequestError" = "Błąd żądania";
+"Access.Status" = "YouTube Plus";
+"Access.Active" = "Za darmo dla każdego";
+"Access.AccountRequired" = "Konto nie jest potrzebne";
+"Access.LogIn" = "Za darmo dla każdego";
+"Access.DeviceLimit" = "Za darmo dla każdego";
+"Access.DeviceNotRegistered" = "Za darmo dla każdego";
+"Access.InsufficientPlan" = "Za darmo dla każdego";
+"Access.NotFound" = "Za darmo dla każdego";
+"Access.AppNotFound" = "Za darmo dla każdego";
+"Access.SignInAgain" = "Za darmo dla każdego";
+"Access.RequestError" = "YouTube Plus jest darmowy dla każdego";
 
 /* Main section */
 "Main" = "Główne";

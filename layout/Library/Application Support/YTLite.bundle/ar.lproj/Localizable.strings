@@ -3,24 +3,24 @@
 "SkipLogInAlert" = "إيقاف تذكير تسجيل الدخول";
 "LogIn" = "سجّل الدخول";
 "ManageAccount" = "أدر الحساب";
-"AccessDenied" = "الوصول مرفوض";
+"AccessDenied" = "يوتيوب بلس مجاني للجميع";
 "LogOut" = "سجّل الخروج";
 "LogOutTitle" = "سجّل الخروج";
 "LogOutMessage" = "هل تريد المتابعة؟";
-"FeaturesNotActivated" = "لم تسجل الدخول. لاستخدام ميزات YouTube Plus، سجّل الدخول بحساب له اشتراك نشط.";
+"FeaturesNotActivated" = "يوتيوب بلس مجاني. يمكن لأي شخص استخدامه.";
 
 /* Account status */
-"Access.Status" = "حالة الاشتراك";
-"Access.Active" = "نشط";
-"Access.AccountRequired" = "يلزم حساب";
-"Access.LogIn" = "سجّل الدخول";
-"Access.DeviceLimit" = "بلغت الحد الأقصى للأجهزة";
-"Access.DeviceNotRegistered" = "الجهاز غير مرتبط";
-"Access.InsufficientPlan" = "باقة الاشتراك لا تكفي";
-"Access.NotFound" = "لم يُعثر على الحساب";
-"Access.AppNotFound" = "التطبيق غير مسجل";
-"Access.SignInAgain" = "سجّل الدخول مجددًا";
-"Access.RequestError" = "تعذّر إتمام الطلب";
+"Access.Status" = "YouTube Plus";
+"Access.Active" = "مجاني للجميع";
+"Access.AccountRequired" = "لا حاجة إلى حساب";
+"Access.LogIn" = "مجاني للجميع";
+"Access.DeviceLimit" = "مجاني للجميع";
+"Access.DeviceNotRegistered" = "مجاني للجميع";
+"Access.InsufficientPlan" = "مجاني للجميع";
+"Access.NotFound" = "مجاني للجميع";
+"Access.AppNotFound" = "مجاني للجميع";
+"Access.SignInAgain" = "مجاني للجميع";
+"Access.RequestError" = "يوتيوب بلس مجاني للجميع";
 
 /* Main section */
 "Main" = "الرئيسي";
